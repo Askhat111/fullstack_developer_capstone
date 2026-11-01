@@ -1,6 +1,8 @@
-# fullstack-dealership-capstone
+# fullstack_developer_capstone
 
-Project: **Dealerships — Full Stack Application Development Capstone**
+Repository name: **fullstack_developer_capstone**
+
+Project name: **fullstack_developer_capstone — Dealerships**
 
 Responsive dealership directory and review portal built from the IBM Skills Network course starter. The Django application handles accounts, car inventory, pages, and API aggregation. An Express/MongoDB service stores sample dealerships and reviews. A Flask/NLTK microservice classifies review sentiment. The React frontend supports browsing, state filtering, authentication, and review submission.
 

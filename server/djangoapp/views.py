@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_POST
 
-from .models import CarMake, CarModel
+from .models import CarModel
 from .restapis import analyze_review_sentiments, get_request, post_review
 
 logger = logging.getLogger(__name__)
@@ -71,7 +71,7 @@ def get_dealerships(request):
     try:
         dealers = get_request("fetchDealers")
         return JsonResponse({"status": 200, "dealers": dealers})
-    except Exception as exc:
+    except Exception:
         logger.exception("Unable to fetch dealerships")
         return JsonResponse({"status": 502, "error": "Dealership service unavailable"}, status=502)
 
