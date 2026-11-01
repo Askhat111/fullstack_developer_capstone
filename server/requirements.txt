@@ -1,0 +1,6 @@
+Django>=5.2,<5.3
+Pillow>=11,<14
+gunicorn>=23,<27
+python-dotenv>=1,<2
+requests>=2.32,<3
+whitenoise>=6.8,<7

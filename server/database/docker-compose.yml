@@ -1,0 +1,28 @@
+services:
+  mongo_db:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    ports:
+      - "3030:3030"
+    environment:
+      PORT: 3030
+      MONGODB_URI: mongodb://mongo_db:27017/dealershipsDB
+    depends_on:
+      mongo_db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
